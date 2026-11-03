@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Sansad Showdown / FightKaro 3D Fighting Game",
   "scripts": {
+    "postinstall": "node -e \"const fs=require('fs'),path=require('path');const dir=path.join('node_modules','.bin');if(!fs.existsSync(dir))fs.mkdirSync(dir,{recursive:true});try{fs.unlinkSync(path.join(dir,'vite'))}catch(e){}fs.symlinkSync(path.join('..','..','vite-shim.js'),path.join(dir,'vite'));console.log('vite binary linked')\"",
+    "build": "node ./vite-shim.js",
     "start": "npx serve -l 8000 ."
   }
 }
